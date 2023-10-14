@@ -1,0 +1,77 @@
+:root {
+  --bck0: #ffffff;
+  --bck1: #ECECEC;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bck0);
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  /* disable scrolling / rubberband effect on mobile */
+  height: 100vh;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  outline: 0;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+#background {
+  width: calc(100vw - 100px);
+  height: calc(100vh - 110px);
+  background-color: var(--bck1);
+  position: relative;
+  top: 70px;
+  left: 60px;
+  z-index: 0;
+}
+
+#scrollText {
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 40px;
+  bottom: -12px;
+  background-color: transparent;
+  mix-blend-mode: multiply;
+}
+
+#scrollText div {
+  width: 200vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  animation: scrollTextAnim 30s infinite linear;
+}
+
+#scrollText span {
+  display: flex;
+  font-size: 30px;
+  font-weight: 100;
+  color: black;
+}
+
+* {
+  /* disable on touch highlights of html elements, especially on mobile! */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@keyframes scrollTextAnim {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
